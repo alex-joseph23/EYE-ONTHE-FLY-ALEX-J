@@ -34,19 +34,3 @@ function HomePage() {
                 </div>
                 </section> ); }
                 export default HomePage;
-                /*removed from under <h1> line to turn into a list/array for a requirement
-                 but copying it here in case I need it or need to change it back.
-                 <div className="lantern-images">
-                    <div className="lifecycle-stage">
-                        <img src="/assets/winter.jpg" alt="Spotted Lanternfly white egg mass on a tree in winter"/>
-                       </div>
-                    <div className="lifecycle-stage">
-                        <img src="/assets/spring.jpg" alt="Black Spotted LanternFly nymph with white spots in spring"/>
-                        </div>
-                    <div className="lifecycle-stage">
-                        <img src="/assets/summer.jpg" alt="Red and black Spotted Lanternfly nymph with white spots in summer"/>
-                     </div>
-                    <div className="lifecycle-stage">
-                        <img src="/assets/fall.jpg" alt="Adult Spotted Lanternfly that has black spots on their tan wings"/>
-                    </div>
-                </div>*/

@@ -17,12 +17,14 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin-top: 2rem
+    margin-top: 2rem;
 }
 .lifecycle-stage img {
     width: 160px;
     border-radius: 20px;
 }
+.lifecycle-stage img:hover {transform: scale(1.5);}
+
 
 .mission-statement h2 {
     font-size: xx-large;

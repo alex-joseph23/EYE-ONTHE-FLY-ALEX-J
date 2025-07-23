@@ -2,7 +2,14 @@
     background-color:rgb(192, 148, 123);
     padding: 1rem 0;
 }
-
+.navbar-title {
+    padding-left: 15%;
+    text-align: left;
+    font-size: medium;
+    margin-bottom: 0%;
+    font-style: italic;
+    color:rgb(77, 62, 39);
+}
 .navbar {
     display: flex;
     justify-content:center;
@@ -20,4 +27,4 @@
     color:rgb(77, 62, 39);
     text-decoration:underline;
     font-weight: bold;
-}
+} 

@@ -8,6 +8,7 @@ function Header() {
         {path: "/resources", label: "Resources"}
     ];
     return ( <header className="site-header">
+        <h1 className= "navbar-title">EYE ON THE FLY</h1>
         <nav className="navbar">
             <ul className="nav-links">
                 {navItems.map((item) => ( <li key={item.path}>
