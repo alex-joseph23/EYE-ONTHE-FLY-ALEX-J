@@ -3,16 +3,18 @@ import { useState } from "react";
 import Alert from "../components/Alert";
 import Button from "../components/Button";
 function SightingFormPage({ setSightingsByCounty }) {
-  const [address, setAddress] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
-  const [checkboxError, setCheckboxError] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+  const [address, setAddress] = useState(""); //keeps up with whatever address input
+  const [isChecked, setIsChecked] = useState(false);//the checkbox input
+  const [checkboxError, setCheckboxError] = useState("");//error for not checking the box
+  const [errorMessage, setErrorMessage] = useState("");//error message
+  const [successMessage, setSuccessMessage] = useState("");//success message
 
   function handleLocationChange(event) {
     setAddress(event.target.value);
   }
-
+//the function below is to check that all validations are met on submit.
+//  Uses Fetch to check addresses from an API. If its all valid it updates sightings
+//  and gives a success message. If its wrong it gives an error message.
   function handleSubmit(event) {
     event.preventDefault();
     setErrorMessage("");
@@ -55,7 +57,7 @@ function SightingFormPage({ setSightingsByCounty }) {
         setErrorMessage("Failed to find location.");
       });
   }
-
+//below is moreso the order and divisions of the page that can be edited in css
   return (
     <section className="sighting-form-page">
       <h1>Submit Your Own Sighting</h1>
@@ -85,7 +87,7 @@ function SightingFormPage({ setSightingsByCounty }) {
         </div>
         <Button type="submit" label="Submit" />
       </form>
-    </section>
+    </section> //the code above checks and validates the input returning a specific message depending on user actions
   );
 }
 export default SightingFormPage;

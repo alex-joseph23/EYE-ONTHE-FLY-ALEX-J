@@ -1,6 +1,6 @@
 import "./HomePage.css";
 
-const lifecycleImages = [
+const lifecycleImages = [ //array list of images
   {
     src: "/assets/winter.jpg",
     alt: "Spotted Lanternfly white egg mass on a tree in winter",
@@ -18,16 +18,17 @@ const lifecycleImages = [
     alt: "Adult Spotted Lanternfly that has black spots on their tan wings",
   },
 ];
-function HomePage() {
-  return (
+function HomePage() { //home page component
+  return ( //page structure
     <section className="home-page">
       <div className="home-info">
         <h1>EYE ON THE FLY</h1>
 
         <div className="lantern-images">
-          {lifecycleImages.map((image, index) => (
+          {lifecycleImages.map((image, index) => ( //.map loop over the array 
             <div className="lifecycle-stage" key={index}>
-              <img src={image.src} alt={image.alt} />
+              <img src={image.src} alt={image.alt}//url for the image and alt text
+               />
             </div>
           ))}
         </div>

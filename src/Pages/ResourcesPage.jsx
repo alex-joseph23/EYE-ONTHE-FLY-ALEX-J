@@ -1,7 +1,8 @@
 import "./ResourcesPage.css";
 import { useState } from "react";
 import Button from "../components/Button";
-
+//below the images are defined/called from the assets folder and put into an array 
+// so that the array can be iterated through in this code
 const galleryImages = [
   { src: "/assets/winter.jpg" },
   { src: "/assets/spring.jpg" },
@@ -9,7 +10,7 @@ const galleryImages = [
   { src: "/assets/fall.jpg" },
 ];
 function ResourcesPage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0); //updates what picture displays
   return (
     <section className="resources-page">
       <div className="resources-title">
@@ -19,23 +20,24 @@ function ResourcesPage() {
         <div className="gallery">
           <img
             className="gallery=image"
-            src={galleryImages[currentIndex].src}
+            src={galleryImages[currentIndex].src}//displays image from the index
           />
 
           <div className="next-button">
             <Button
-              label="<"
+              label="<"//puts a cute little arrow on my button
               onClick={() =>
                 setCurrentIndex(
                   (currentIndex - 1 + galleryImages.length) %
                     galleryImages.length
-                )
+                )//the lines above tell my code to go backwards in the index to 
+                // the previous picture and then loop through
               }
             />
             <Button
               label=">"
               onClick={() =>
-                setCurrentIndex((currentIndex + 1) % galleryImages.length)
+                setCurrentIndex((currentIndex + 1) % galleryImages.length) // same thing as the other button but forward
               }
             />
           </div>
@@ -90,6 +92,9 @@ function ResourcesPage() {
           important way to help stop the spread.
         </p>
         <h5>Additional Links and Resources</h5>
+        {/*below makes a table, thead makes a head for the table columns, 
+        tr with th in the tag adds the labels to the rows. td is the data/input for the body rows.
+        ahref makes a link  */}
         <table className="links">
           <thead>
             <tr>
@@ -105,16 +110,24 @@ function ResourcesPage() {
               </td>
             </tr>
             <tr>
-              <td>Animal and Plant Health Inspection Service
-                U.S. DEPARTMENT OF AGRICULTURE</td>
               <td>
-                <a href="https://www.aphis.usda.gov/plant-pests-diseases/slf"> click here</a>
+                Animal and Plant Health Inspection Service U.S. DEPARTMENT OF
+                AGRICULTURE
+              </td>
+              <td>
+                <a href="https://www.aphis.usda.gov/plant-pests-diseases/slf">
+                  {" "}
+                  click here
+                </a>
               </td>
             </tr>
             <tr>
               <td>Spotted Lanternfly Management Guide</td>
               <td>
-                <a href="https://extension.psu.edu/spotted-lanternfly-management-guide"> click here</a>
+                <a href="https://extension.psu.edu/spotted-lanternfly-management-guide">
+                  {" "}
+                  click here
+                </a>
               </td>
             </tr>
           </tbody>
@@ -124,4 +137,3 @@ function ResourcesPage() {
   );
 }
 export default ResourcesPage;
-

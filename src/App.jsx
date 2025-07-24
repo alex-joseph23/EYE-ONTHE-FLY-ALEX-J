@@ -6,13 +6,19 @@ import HomePage from "./Pages/HomePage";
 import MapPage from "./Pages/MapPage";
 import SightingFormPage from "./Pages/SightingFormPage";
 import ResourcesPage from "./Pages/ResourcesPage";
+//those lines above are calling all my imports that are coded elsewhere so that
+//i can use them in this code for things like routing my pages.
 function App() {
   const [sightingsByCounty, setSightingsByCounty] = useState({});
   return (
     <Router>
       <div className="App">
         <Header />
+        {/* double slash wont work again lol, line 16 renders my code from header
+        which is my navbar and applies it to the whole site. Same concept but footer on 
+        line 39 */}
         <main>
+          {/* Below is the routing to change pages */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route

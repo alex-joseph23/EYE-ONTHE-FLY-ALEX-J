@@ -23,9 +23,9 @@
   width: 160px;
   border-radius: 20px;
 }
-.lifecycle-stage img:hover {
-  transform: scale(1.5);
-}
+.lifecycle-stage img:hover { 
+  transform: scale(1.5);}
+  /* hover enlarge */
 
 .mission-statement {
   text-align: center;
