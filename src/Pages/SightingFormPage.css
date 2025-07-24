@@ -31,7 +31,7 @@ input[type="text"] {
 }
 .submit-button{
     background-color: rgb(128, 177, 233);
-    color:aliceblue;
+    color:rgb(222, 230, 238);
     padding: .75rem 2rem;
     border-radius: 8px;
     font-size: 1rem;
@@ -39,4 +39,6 @@ input[type="text"] {
     display: block;
 }
 
-.submit-button:hover { background-color: rgb(65, 92, 209);}
+.submit-button:hover { background-color: rgb(65, 92, 209);
+    transition: background-color 1s ease;
+}

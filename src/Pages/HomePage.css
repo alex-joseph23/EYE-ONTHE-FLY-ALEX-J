@@ -34,3 +34,14 @@
     font-size: large;
     margin-bottom: 1rem;
 }
+/*break point for an ipad mini*/
+@media screen and (max-width:768px){
+    .home-page{
+        padding: 1rem;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+
+    
