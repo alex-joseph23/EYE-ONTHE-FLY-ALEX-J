@@ -1,9 +1,9 @@
 .site-footer {
-    background-color:rgb(192, 148, 123);
-    color: rgb(77, 62, 39);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 14px;
+  background-color: rgb(192, 148, 123);
+  color: rgb(77, 62, 39);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
 }
 .site-footer p {
   margin: 0;

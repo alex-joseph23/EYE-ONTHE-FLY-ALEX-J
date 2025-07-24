@@ -1,4 +1,4 @@
- /*Copyright (c) 2017 Pareto Softare, LLC DBA Simplemaps.com	
+/*Copyright (c) 2017 Pareto Softare, LLC DBA Simplemaps.com	
  Free for Commercial Use, full terms at  http://simplemaps.com/resources/svg-license
  Attribution is appreciated! http://simplemaps.com 
 

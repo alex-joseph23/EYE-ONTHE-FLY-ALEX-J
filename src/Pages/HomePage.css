@@ -1,10 +1,10 @@
 .home-page {
-    padding: 2rem;
-    text-align: center;
-    background-color:rgb(141, 201, 141);
-    width:100%;
-    box-sizing: border-box;
-    min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgb(141, 201, 141);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .home-info h1 {
@@ -13,35 +13,33 @@
 }
 
 .lantern-images {
-    display:flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 .lifecycle-stage img {
-    width: 160px;
-    border-radius: 20px;
+  width: 160px;
+  border-radius: 20px;
 }
-.lifecycle-stage img:hover {transform: scale(1.5);}
-
+.lifecycle-stage img:hover {
+  transform: scale(1.5);
+}
 
 .mission-statement h2 {
-    font-size: xx-large;
-    margin-bottom: 1rem;
+  font-size: xx-large;
+  margin-bottom: 1rem;
 }
 .mission-statement p {
-    font-size: large;
-    margin-bottom: 1rem;
+  font-size: large;
+  margin-bottom: 1rem;
 }
 /*break point for an ipad mini*/
-@media screen and (max-width:768px){
-    .home-page{
-        padding: 1rem;
-        font-size: 14px;
-        text-align: center;
-    }
+@media screen and (max-width: 768px) {
+  .home-page {
+    padding: 1rem;
+    font-size: 14px;
+    text-align: center;
+  }
 }
-
-
-    
