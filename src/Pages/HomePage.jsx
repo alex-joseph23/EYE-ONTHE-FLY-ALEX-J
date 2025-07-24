@@ -41,9 +41,9 @@ function HomePage() {
             <em>Lycorma Delicatula</em>).
           </p>
           <p>
-            Track user submissions throughout the map on the map page or submit
-            your own sightings on the submissions page.
+            Head over to the Submission page to add your sighting and see it represented, according to location, on our Tracker page.
           </p>
+          <p>For additional information, images, and other helpful resources check out the Resources page!</p>
         </div>
       </div>
     </section>

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 function Header() {
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/map", label: "Map" },
-    { path: "/submitSighting", label: "Make A Submission" },
+    { path: "/submitSighting", label: "Submission" },
+    { path: "/map", label: "Tracker" },
     { path: "/resources", label: "Resources" },
   ];
   return (
