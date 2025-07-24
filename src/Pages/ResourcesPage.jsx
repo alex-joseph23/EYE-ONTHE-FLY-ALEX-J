@@ -55,7 +55,7 @@ function ResourcesPage() {
         <p className="identification">
           It is important be able to properly identify the presence of a Spotted
           Lanternfly as early as you can. The SLF has distinctive seasonal
-          characteristics as shown in the images to the left. Spring: they
+          characteristics as shown in the image gallery above. Spring: they
           appear all black with white spots on their bodies. Summer: Their color
           changes to bright red with black stripes and white spots. Fall: The
           spotted lanternfly matures into a semi flying insect (really a
@@ -90,6 +90,35 @@ function ResourcesPage() {
           important way to help stop the spread.
         </p>
         <h5>Additional Links and Resources</h5>
+        <table className="links">
+          <thead>
+            <tr>
+              <th>Website Title</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>New Jersey Department of Agriculture</td>
+              <td>
+                <a href="https://www.nj.gov/agriculture/"> click here</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Animal and Plant Health Inspection Service
+                U.S. DEPARTMENT OF AGRICULTURE</td>
+              <td>
+                <a href="https://www.aphis.usda.gov/plant-pests-diseases/slf"> click here</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Spotted Lanternfly Management Guide</td>
+              <td>
+                <a href="https://extension.psu.edu/spotted-lanternfly-management-guide"> click here</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
   );

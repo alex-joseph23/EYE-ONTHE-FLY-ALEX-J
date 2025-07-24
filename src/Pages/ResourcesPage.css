@@ -62,3 +62,7 @@
     display: flex;
     gap: .1rem
 }
+.links{
+    max-width: 1000px;
+    margin: 0 auto 2rem auto;
+}
