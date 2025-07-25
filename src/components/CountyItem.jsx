@@ -1,4 +1,4 @@
-import "./CountyItem.css";
+import "./countyItem.css";
 function CountyItem({ name, count, color }) { //CountyItem component with three props
   return (
     <div className="county-boundary" style={{ backgroundColor: color }}>
