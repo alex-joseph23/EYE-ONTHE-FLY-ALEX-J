@@ -5,6 +5,7 @@ function Header() {
     { path: "/", label: "Home" },
     { path: "/submitSighting", label: "Submission" },
     { path: "/map", label: "Tracker" },
+    { path: "/allsightings", label: "All Sightings" },
     { path: "/resources", label: "Resources" },
   ];
   return (

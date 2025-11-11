@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import HomePage from "./Pages/HomePage";
 import MapPage from "./Pages/MapPage";
 import SightingFormPage from "./Pages/SightingFormPage";
+import AllSightingsPage from "./Pages/AllSightingsPage";
 import ResourcesPage from "./Pages/ResourcesPage";
 //those lines above are calling all my imports that are coded elsewhere so that
 //i can use them in this code for things like routing my pages.
@@ -40,6 +41,7 @@ function App() {
                 />
               }
             />
+            <Route path="/allsightings" element={<AllSightingsPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
           </Routes>
         </main>
