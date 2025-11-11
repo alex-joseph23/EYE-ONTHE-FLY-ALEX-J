@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -10,6 +10,12 @@ import ResourcesPage from "./Pages/ResourcesPage";
 //i can use them in this code for things like routing my pages.
 function App() {
   const [sightingsByCounty, setSightingsByCounty] = useState({});
+
+  useEffect(() => { fetch("http://localhost:8080/api/sightings/count-by-county")
+      .then((response) => response.json())
+      .then((data) => setSightingsByCounty(data))
+      .catch((error) => console.error("Error loading sightings:", error));
+  }, []);
   return (
     <Router>
       <div className="App">
