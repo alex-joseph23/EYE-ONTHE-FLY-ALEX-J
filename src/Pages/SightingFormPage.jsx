@@ -43,6 +43,33 @@ function SightingFormPage({ setSightingsByCounty }) {
           return;
         }
         const countyWithSuffix = data[0].address.county || "Unknown";
+
+        const newSighting = {
+          location: address,
+          date: new Date().toISOString().split("T")[0],
+          time: new Date().toLocaleTimeString([], {
+            hour: "2-digit", minute: "2-digit",
+          }),
+         
+          imageUrl: "https://example.com/default-image.jpg",
+          description: "Sighting submitted via form.",
+          county: { name:countyWithSuffix },
+        };
+
+        fetch("http://localhost:8080/api/sightings/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newSighting),
+        }
+        )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to save sighting.");
+        }
+          return response.json();
+        })
+      .then((savedSighting) => {
+        
         setSightingsByCounty((prev) => ({
           ...prev,
           [countyWithSuffix]: (prev[countyWithSuffix] || 0) + 1,
@@ -51,8 +78,10 @@ function SightingFormPage({ setSightingsByCounty }) {
         setSuccessMessage(
           "Thank you! Your sighting was succesfully sumbitted to our tracker.",
         );
-        setErrorMessage("");
       })
+      .catch((error) => {
+        setErrorMessage("Error saving sighting. Please try again")});
+      }) 
       .catch((error) => {
         setErrorMessage("Failed to find location.");
       });
