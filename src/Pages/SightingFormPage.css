@@ -40,6 +40,15 @@ input[type="text"] {
   display: block;
 }
 
+textarea {
+  width: 20rem;
+  min-height: 6rem;
+  padding: 0.5rem;
+  border: 2px solid;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: vertical;}
+
 .submit-button:hover {
   background-color: rgb(65, 92, 209);
   transition: background-color 1s ease;

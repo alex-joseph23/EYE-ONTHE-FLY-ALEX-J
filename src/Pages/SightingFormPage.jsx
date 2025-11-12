@@ -4,6 +4,8 @@ import Alert from "../components/Alert";
 import Button from "../components/Button";
 function SightingFormPage({ setSightingsByCounty }) {
   const [address, setAddress] = useState(""); //keeps up with whatever address input
+  const [imageUrl, setImageUrl] = useState("");
+  const [description, setDescription] = useState("");
   const [isChecked, setIsChecked] = useState(false);//the checkbox input
   const [checkboxError, setCheckboxError] = useState("");//error for not checking the box
   const [errorMessage, setErrorMessage] = useState("");//error message
@@ -11,6 +13,12 @@ function SightingFormPage({ setSightingsByCounty }) {
 
   function handleLocationChange(event) {
     setAddress(event.target.value);
+  }
+  function handleImageUrlChange(event) {
+    setImageUrl(event.target.value);
+  }
+  function handleDescriptionChange(event) {
+    setDescription(event.target.value);
   }
 //the function below is to check that all validations are met on submit.
 //  Uses Fetch to check addresses from an API. If its all valid it updates sightings
@@ -43,49 +51,51 @@ function SightingFormPage({ setSightingsByCounty }) {
           return;
         }
         const countyWithSuffix = data[0].address.county || "Unknown";
-
         const newSighting = {
           location: address,
           date: new Date().toISOString().split("T")[0],
-          time: new Date().toLocaleTimeString([], {
-            hour: "2-digit", minute: "2-digit",
-          }),
-         
-          imageUrl: "https://example.com/default-image.jpg",
-          description: "Sighting submitted via form.",
-          county: { name:countyWithSuffix },
+          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          imageUrl:
+            imageUrl.trim() !== ""
+              ? imageUrl
+              : "https://example.com/default-image.jpg",
+          description: description || "User submitted sighting",
+          county: { name: countyWithSuffix },
         };
-
         fetch("http://localhost:8080/api/sightings/add", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newSighting),
-        }
-        )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to save sighting.");
-        }
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to save submission");
+          }
           return response.json();
         })
-      .then((savedSighting) => {
-        
-        setSightingsByCounty((prev) => ({
-          ...prev,
-          [countyWithSuffix]: (prev[countyWithSuffix] || 0) + 1,
-        }));
-        setAddress("");
-        setSuccessMessage(
-          "Thank you! Your sighting was succesfully sumbitted to our tracker.",
-        );
+        .then(() => {
+          setSightingsByCounty((prev) => ({
+            ...prev,
+            [countyWithSuffix]: (prev[countyWithSuffix] || 0) + 1,
+          }));
+          setAddress("");
+          setImageUrl("");
+          setDescription("");
+          setIsChecked(false);
+          setSuccessMessage(
+            "Sighting succesfully sumbitted.",
+          );
+        })
+        .catch(() => {
+          setErrorMessage("Failed to Upload.");
+        });
       })
-      .catch((error) => {
-        setErrorMessage("Error saving sighting. Please try again")});
-      }) 
-      .catch((error) => {
+      .catch(() => {
         setErrorMessage("Failed to find location.");
       });
   }
+   
+      
 //below is moreso the order and divisions of the page that can be edited in css
   return (
     <section className="sighting-form-page">
@@ -101,6 +111,21 @@ function SightingFormPage({ setSightingsByCounty }) {
             placeholder='e.g. "123 5th Ave, Town,NJ"'
           />
           <p>Please numeric street names: e.g. "5th", not "Fifth".</p>
+          <label htmlFor="imageUrl">Image URL (optional):</label>
+          <input
+            id="imageUrl"
+            type="text"
+            value={imageUrl}
+            onChange={handleImageUrlChange}
+            />
+          <label htmlFor="description">Description (optional):</label>
+          <textarea
+            id="description"
+            rows="3"
+            value={description}
+            onChange={handleDescriptionChange}
+            placeholder="250 characters max"
+            />
 
           <label className="confirm-checkbox">
             <input
@@ -111,7 +136,7 @@ function SightingFormPage({ setSightingsByCounty }) {
             I confirm this sighting is accurate.
           </label>
           {checkboxError && <Alert message={checkboxError} type="error" />}
-          {successMessage && <Alert message={successMessage} type="succes" />}
+          {successMessage && <Alert message={successMessage} type="success" />}
           {errorMessage && <Alert message={errorMessage} type="error" />}
         </div>
         <Button type="submit" label="Submit" />
