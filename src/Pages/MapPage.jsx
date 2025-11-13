@@ -1,6 +1,7 @@
 import CountyItem from "../components/CountyItem";
 import "./MapPage.css";
-function MapPage({ sightingsByCounty }) { //component recieving sighting data
+function MapPage({ sightingsByCounty }) {
+  //component recieving sighting data
   const counties = [
     "Atlantic County",
     "Bergen County",
@@ -24,7 +25,7 @@ function MapPage({ sightingsByCounty }) { //component recieving sighting data
     "Union County",
     "Warren County",
   ];
-  //Below the function changes the color of the county cards 
+  //Below the function changes the color of the county cards
   // depending on the number of sightings
   function getColor(count) {
     if (!count) return "#eeeeee";
@@ -44,9 +45,9 @@ function MapPage({ sightingsByCounty }) { //component recieving sighting data
           return (
             <CountyItem //component
               key={county}
-              name={county}//prop passed
-              count={count}//prop passed
-              color={color}//prop passed
+              name={county} //prop passed
+              count={count} //prop passed
+              color={color} //prop passed
             />
           );
         })}

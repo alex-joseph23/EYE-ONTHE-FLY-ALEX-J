@@ -1,6 +1,7 @@
 import "./HomePage.css";
 
-const lifecycleImages = [ //array list of images
+const lifecycleImages = [
+  //array list of images
   {
     src: "/assets/winter.jpg",
     alt: "Spotted Lanternfly white egg mass on a tree in winter",
@@ -18,19 +19,28 @@ const lifecycleImages = [ //array list of images
     alt: "Adult Spotted Lanternfly that has black spots on their tan wings",
   },
 ];
-function HomePage() { //home page component
-  return ( //page structure
+function HomePage() {
+  //home page component
+  return (
+    //page structure
     <section className="home-page">
       <div className="home-info">
         <h1>EYE ON THE FLY</h1>
 
         <div className="lantern-images">
-          {lifecycleImages.map((image, index) => ( //.map loop over the array 
-            <div className="lifecycle-stage" key={index}>
-              <img src={image.src} alt={image.alt}//url for the image and alt text
-               />
-            </div>
-          ))}
+          {lifecycleImages.map(
+            (
+              image,
+              index //.map loop over the array
+            ) => (
+              <div className="lifecycle-stage" key={index}>
+                <img
+                  src={image.src}
+                  alt={image.alt} //url for the image and alt text
+                />
+              </div>
+            )
+          )}
         </div>
 
         <div className="mission-statement">
@@ -42,9 +52,13 @@ function HomePage() { //home page component
             <em>Lycorma Delicatula</em>).
           </p>
           <p>
-            Head over to the Submission page to add your sighting and see it represented, according to location, on our Tracker page.
+            Head over to the Submission page to add your sighting and see it
+            represented, according to location, on our Tracker page.
           </p>
-          <p>For additional information, images, and other helpful resources check out the Resources page!</p>
+          <p>
+            For additional information, images, and other helpful resources
+            check out the Resources page!
+          </p>
         </div>
       </div>
     </section>
