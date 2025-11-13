@@ -1,4 +1,5 @@
 import "./AllSightingsPage.css";
+import Button from "../components/Button";
 import { useState, useEffect } from "react";
 
 function AllSightingsPage() {
@@ -70,15 +71,21 @@ function AllSightingsPage() {
                                 value={editedDescription}
                                 onChange={(e) => setEditedDescription(e.target.value)}
                                 rows="6"/>
-                                <button onClick={() => handleUpdate(sighting.id)}>Save</button>
-                                <button onClick={() => setEditingId(null)}>Cancel</button>
+                                <Button 
+                                label="Save"
+                                onClick={() => handleUpdate(sighting.id)}/>
+                                <Button 
+                                label="Cancel"
+                                onClick={() => setEditingId(null)}/>
                                 </>
                             ) : (
                                 <>
                             <p>
                               <strong>Description:</strong> {sighting.description}  
                             </p>
-                            <button onClick={() => handleEditClick(sighting.id, sighting.description)}>Edit Description</button>
+                            <Button 
+                            label="Edit Description"
+                            onClick={() => handleEditClick(sighting.id, sighting.description)}/>
                             </>
                             )}
                         </div>
