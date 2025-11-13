@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 function AllSightingsPage() {
     const [sightings, setSightings] = useState([]);
+    const [editingId, setEditingId] = useState(null);
+    const [editedDescription, setEditedDescription] = useState("");
     useEffect (() => {
         fetch("http://localhost:8080/api/sightings")
         .then((response) => response.json())
@@ -14,7 +16,34 @@ function AllSightingsPage() {
         });
             setSightings(sortedSightings); })
         .catch((error) => console.error("Error loading sightings:", error));
-    }, []); 
+    }, []);
+
+    const handleEditClick = (id, currentDescription) => {
+        setEditingId(id);
+        setEditedDescription(currentDescription);
+    };
+
+    const handleUpdate = (id) => {
+        fetch(`http://localhost:8080/api/sightings/update/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ description: editedDescription }),
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to update sighting.");
+    }
+            return response.json();
+        })
+        .then((updatedSighting) => {
+            setSightings((prevSightings) =>
+                prevSightings.map((sighting) =>
+                    sighting.id === id ? {...sighting, description: updatedSighting.description } : sighting)
+        );
+    setEditingId(null);
+        })
+        .catch((error) => console.error("Error updating sighting:", error));
+    };
 
     return (
         <section className="all-sightings-page">
@@ -35,9 +64,23 @@ function AllSightingsPage() {
                             <p>
                              <strong>Date:</strong> {sighting.date}
                             </p>
+                            {editingId === sighting.id ? (
+                                <>
+                                <textarea 
+                                value={editedDescription}
+                                onChange={(e) => setEditedDescription(e.target.value)}
+                                rows="6"/>
+                                <button onClick={() => handleUpdate(sighting.id)}>Save</button>
+                                <button onClick={() => setEditingId(null)}>Cancel</button>
+                                </>
+                            ) : (
+                                <>
                             <p>
                               <strong>Description:</strong> {sighting.description}  
                             </p>
+                            <button onClick={() => handleEditClick(sighting.id, sighting.description)}>Edit Description</button>
+                            </>
+                            )}
                         </div>
                     ))}
                 </div>
